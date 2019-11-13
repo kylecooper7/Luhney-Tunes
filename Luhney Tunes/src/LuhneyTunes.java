@@ -4,27 +4,33 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class LuhneyTunes {
+	static int counter123 = 0;
+	
 	public static void main(String[] args) {
 	
 // DigitGetterTest:
-//System.out.println(digitGetter(987654321, 4));
+// System.out.println(digitGetter(987654321, 4));
 		
-		readLines("List Of Numbers");
+	 readLines("List Of Numbers");
+	 System.out.println(counter123 + " of these numbers are valid.");
 	}
 		
 	
 	public static void luhneyToons(int[] numbersToEval) {
-		
 		int sum = 0;
 		for(int i = 0; i < numbersToEval.length; i++) {
 			sum += (addDigits(getNewNumberFromArray(doubleEveryOther(addDigitsToArray(numbersToEval[i])))))%10;
 		}
 		if(sum%10 == 0) {
 			System.out.println("Pass");
+			
+			counter123 ++;
+			
 		}
 		else {
 			System.out.println("Fail");
 		}
+		
 		
 	}
 	
@@ -40,7 +46,8 @@ public class LuhneyTunes {
 				while ((line = bufferedReader.readLine()) != null)
 					{
 						
-						luhneyToons(readAndSplit(line));
+						// luhneyToons(readAndSplit(line));
+						easyWay(line);
 					}
 				bufferedReader.close();
 			} catch (FileNotFoundException ex)
@@ -54,6 +61,22 @@ public class LuhneyTunes {
 	}
 	
 	
+	public static void easyWay(String line)
+		{
+			int[] digits = new int[16];
+			int multiplier = 1;
+			for( int i = 0; i < digits.length ; i ++) {
+				multiplier = 2 / ( i % 2  + 1);
+				digits [i] = multiplier * Integer.parseInt(line.substring(i, i + 1));	
+				
+					
+				
+			}
+			
+			
+		}
+
+
 	public static int[] readAndSplit(String line){
 	int theLength = 0;
 	int i =0;
