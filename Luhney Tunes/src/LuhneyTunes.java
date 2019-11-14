@@ -63,17 +63,36 @@ public class LuhneyTunes {
 	
 	public static void easyWay(String line)
 		{
-			int[] digits = new int[16];
+			/* int[] digits = new int[16];
 			int multiplier = 1;
+			int sum = 0;
 			for( int i = 0; i < digits.length ; i ++) {
 				multiplier = 2 / ( i % 2  + 1);
 				digits [i] = multiplier * Integer.parseInt(line.substring(i, i + 1));	
-				
-					
-				
+				if(digits[i] > 9) {
+					digits[i] = digits[i] % 10 + 1;
+				}
 			}
 			
-			
+			for(Integer num: digits) {
+				sum += num;
+			}
+			if(sum%10 == 0) {
+				counter123 ++;
+			}
+			*/
+		int sum = 0;
+		for(int i = 0; i < line.length(); i++) {
+			int digit = 0;
+			digit = (2 / ( i % 2  + 1)) * Integer.parseInt(line.substring(i, i + 1));
+			if(digit > 9) {
+			digit = digit%10 + 1;	
+			}
+			sum+= digit;
+		}
+		if(sum%10 == 0) {
+			counter123++;
+		}
 		}
 
 
