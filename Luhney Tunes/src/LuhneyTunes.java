@@ -13,6 +13,7 @@ public class LuhneyTunes {
 		
 	 readLines("List Of Numbers");
 	 System.out.println(counter123 + " of these numbers are valid.");
+	 
 	}
 		
 	
@@ -23,15 +24,11 @@ public class LuhneyTunes {
 		}
 		if(sum%10 == 0) {
 			System.out.println("Pass");
-			
 			counter123 ++;
-			
 		}
 		else {
 			System.out.println("Fail");
-		}
-		
-		
+		}	
 	}
 	
 	public static void readLines(String fileName)
@@ -45,7 +42,6 @@ public class LuhneyTunes {
 				
 				while ((line = bufferedReader.readLine()) != null)
 					{
-						
 						// luhneyToons(readAndSplit(line));
 						easyWay(line);
 					}
